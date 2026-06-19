@@ -1,0 +1,21 @@
+interface Coffee{
+    void serve();
+}
+class Cappuccino implements Coffee{
+    @Override
+    public void serve() {
+        System.out.println("Cappucino is served.");
+    }
+}
+
+class CoffeeFactory{
+    public static Coffee getCoffee(){
+        return new Cappuccino();
+    }
+}
+public class FactoryMain {
+    public static void main(String[] args) {
+        Coffee c1=CoffeeFactory.getCoffee();
+        c1.serve();
+    }
+}

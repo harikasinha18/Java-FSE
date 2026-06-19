@@ -1,0 +1,91 @@
+package DSA;
+import java.util.*;
+class Product {
+    private String name;
+    private String category;
+    private String brand;
+    public Product(String name, String category, String brand) {
+        this.name = name;
+        this.category = category;
+        this.brand = brand;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public String getBrand() {
+        return brand;
+    }
+    @Override
+    public String toString() {
+        return name + " | " + category + " | " + brand;
+    }
+}
+interface SearchStrategy {
+    void search(List<Product> products, String keyword);
+}
+class ProductNameSearch implements SearchStrategy {
+    @Override
+    public void search(List<Product> products, String keyword) {
+        System.out.println("\nSearching by Product Name:");
+        for(Product p : products) {
+            if(p.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(p);
+            }
+        }
+    }
+}
+class CategorySearch implements SearchStrategy {
+    @Override
+    public void search(List<Product> products, String keyword) {
+        System.out.println("\nSearching by Category:");
+        for(Product p : products) {
+            if(p.getCategory().equalsIgnoreCase(keyword)) {
+                System.out.println(p);
+            }
+        }
+    }
+}
+class BrandSearch implements SearchStrategy {
+    @Override
+    public void search(List<Product> products, String keyword) {
+        System.out.println("\nSearching by Brand:");
+        for(Product p : products) {
+            if(p.getBrand().equalsIgnoreCase(keyword)) {
+                System.out.println(p);
+            }
+        }
+    }
+}
+class SearchContext {
+    private SearchStrategy strategy;
+    public void setStrategy(SearchStrategy strategy) {
+        this.strategy = strategy;
+    }
+    public void executeSearch(
+            List<Product> products,
+            String keyword) {strategy.search(products, keyword);
+    }
+}
+public class EcommerceMain {
+    public static void main(String[] args){
+        List<Product> products = Arrays.asList(
+                new Product("iPhone 15", "Mobile", "Apple"),
+                new Product("Galaxy S24", "Mobile", "Samsung"),
+                new Product("MacBook Air", "Laptop", "Apple"),
+                new Product("ThinkPad", "Laptop", "Lenovo")
+        );
+        SearchContext context = new SearchContext();
+        // Search by Product Name
+        context.setStrategy(new ProductNameSearch());
+        context.executeSearch(products, "iphone");
+        // Search by Category
+        context.setStrategy(new CategorySearch());
+        context.executeSearch(products, "Laptop");
+        // Search by Brand
+        context.setStrategy(new BrandSearch());
+        context.executeSearch(products, "Apple");
+    }
+}

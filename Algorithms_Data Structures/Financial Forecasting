@@ -1,0 +1,52 @@
+package DSA;
+interface ForecastStrategy {
+    double forecast(double[] salesData);
+}
+class MovingAverageForecast implements ForecastStrategy {
+    @Override
+    public double forecast(double[] salesData) {
+        double sum = 0;
+        for (double sale : salesData) {
+            sum += sale;
+        }
+        return sum / salesData.length;
+    }
+}
+class LastMonthForecast implements ForecastStrategy {
+    @Override
+    public double forecast(double[] salesData) {
+        return salesData[salesData.length - 1];
+    }
+}
+class GrowthRateForecast implements ForecastStrategy {
+    @Override
+    public double forecast(double[] salesData) {
+        double totalGrowth = 0;
+        for (int i = 1; i < salesData.length; i++) {
+            totalGrowth += (salesData[i] - salesData[i - 1]) / salesData[i - 1];
+        }
+        double avgGrowth = totalGrowth / (salesData.length - 1);
+        return salesData[salesData.length - 1] * (1 + avgGrowth);
+    }
+}
+class FinancialForecaster {
+    private ForecastStrategy strategy;
+    public void setStrategy(ForecastStrategy strategy) {
+        this.strategy = strategy;
+    }
+    public double generateForecast(double[] salesData) {
+        return strategy.forecast(salesData);
+    }
+}
+public class ForecastMain {
+    public static void main(String[] args){
+        double[] sales = {10000, 12000, 13000, 15000, 17000};
+        FinancialForecaster forecaster = new FinancialForecaster();
+        forecaster.setStrategy(new MovingAverageForecast());
+        System.out.println("Moving Average Forecast: " + forecaster.generateForecast(sales));
+        forecaster.setStrategy(new LastMonthForecast());
+        System.out.println("Last Month Forecast: " + forecaster.generateForecast(sales));
+        forecaster.setStrategy(new GrowthRateForecast());
+        System.out.println("Growth Rate Forecast: " + forecaster.generateForecast(sales));
+    }
+}

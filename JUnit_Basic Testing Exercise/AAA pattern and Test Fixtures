@@ -1,0 +1,110 @@
+Calculator Class
+
+public class Calculator {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public int divide(int a, int b) {
+        return a / b;
+    }
+}
+
+
+CalculatorTest Class
+
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorTest {
+
+    Calculator calculator;
+
+    @BeforeAll
+    static void beforeAllTests() {
+        System.out.println("=== Starting Calculator Tests ===");
+    }
+
+    @AfterAll
+    static void afterAllTests() {
+        System.out.println("=== All Tests Completed ===");
+    }
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+        System.out.println("Calculator Object Created");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("Test Finished\n");
+    }
+
+    @Test
+    void testAddition() {
+
+        // Arrange
+        int a = 20;
+        int b = 10;
+
+        // Act
+        int result = calculator.add(a, b);
+
+        // Assert
+        assertEquals(30, result);
+    }
+
+    @Test
+    void testSubtraction() {
+
+        // Arrange
+        int a = 20;
+        int b = 10;
+
+        // Act
+        int result = calculator.subtract(a, b);
+
+        // Assert
+        assertEquals(10, result);
+    }
+
+    @Test
+    void testMultiplication() {
+
+        // Arrange
+        int a = 5;
+        int b = 4;
+
+        // Act
+        int result = calculator.multiply(a, b);
+
+        // Assert
+        assertEquals(20, result);
+    }
+
+    @Test
+    void testDivision() {
+
+        // Arrange
+        int a = 20;
+        int b = 5;
+
+        // Act
+        int result = calculator.divide(a, b);
+
+        // Assert
+        assertEquals(4, result);
+    }
+}

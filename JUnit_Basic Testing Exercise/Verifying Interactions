@@ -1,0 +1,266 @@
+User Class
+
+public class User {
+
+    private int id;
+    private String name;
+
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+UserRepository class
+public interface UserRepository {
+
+    User findUser(int id);
+
+}
+
+UserService class
+
+public class UserService {
+
+    private UserRepository repository;
+
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
+
+    public String getUserName(int id) {
+
+        User user = repository.findUser(id);
+
+        return user.getName();
+    }
+}
+
+UserServiceTest class
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+
+public class UserServiceTest {
+
+    // verify()
+    @Test
+    void testVerify() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        UserService service = new UserService(repository);
+
+        String name = service.getUserName(1);
+
+        verify(repository).findUser(1);
+
+        assertEquals("Raj", name);
+    }
+
+    // times()
+    @Test
+    void testTimes() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+        repository.findUser(1);
+
+        verify(repository, times(2)).findUser(1);
+    }
+
+    // never()
+    @Test
+    void testNever() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+
+        verify(repository, never()).findUser(2);
+    }
+
+    // atLeastOnce()
+    @Test
+    void testAtLeastOnce() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+
+        verify(repository, atLeastOnce()).findUser(1);
+    }
+
+    // atLeast()
+    @Test
+    void testAtLeast() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+        repository.findUser(1);
+        repository.findUser(1);
+
+        verify(repository, atLeast(2)).findUser(1);
+    }
+
+    // atMost()
+    @Test
+    void testAtMost() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+        repository.findUser(1);
+
+        verify(repository, atMost(2)).findUser(1);
+    }
+
+    // anyInt()
+    @Test
+    void testAnyInt() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(anyInt()))
+                .thenReturn(new User(100, "Raj"));
+
+        repository.findUser(10);
+
+        verify(repository).findUser(anyInt());
+    }
+
+    // verifyNoInteractions()
+    @Test
+    void testVerifyNoInteractions() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        verifyNoInteractions(repository);
+    }
+
+    // verifyNoMoreInteractions()
+    @Test
+    void testVerifyNoMoreInteractions() {
+
+        UserRepository repository = mock(UserRepository.class);
+
+        when(repository.findUser(1))
+                .thenReturn(new User(1, "Raj"));
+
+        repository.findUser(1);
+
+        verify(repository).findUser(1);
+
+        verifyNoMoreInteractions(repository);
+    }
+}
+
+
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>setup</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.13.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito Core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito JUnit 5 -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>5.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- SLF4J API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+
+        <!-- Logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.18</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.17.5/byte-buddy-agent-1.17.5.jar
+                    </argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

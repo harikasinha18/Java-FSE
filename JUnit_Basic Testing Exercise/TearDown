@@ -1,0 +1,48 @@
+calculator class
+
+
+public class Calculator {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public int divide(int a, int b) {
+        return a / b;
+    }
+}
+
+calculatorTest Class
+
+import org.junit.jupiter.api.*;
+
+public class CalculatorTest {
+
+    @BeforeAll
+    static void startTests() {
+        System.out.println("Opening database connection...");
+    }
+
+    @AfterAll
+    static void endTests() {
+        System.out.println("Closing database connection...");
+    }
+
+    @Test
+    void testOne() {
+        System.out.println("Running Test 1");
+    }
+
+    @Test
+    void testTwo() {
+        System.out.println("Running Test 2");
+    }
+}

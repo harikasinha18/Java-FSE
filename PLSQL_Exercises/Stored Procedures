@@ -1,0 +1,124 @@
+ --Simple Stored Procedure
+ CREATE OR REPLACE PROCEDURE greet_user
+AS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Welcome to PL/SQL');
+END;
+/
+BEGIN
+    greet_user;
+END;
+/
+
+--Procedure with IN Parameter
+CREATE OR REPLACE PROCEDURE show_square(
+    num IN NUMBER
+)
+AS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Square = ' || (num*num));
+END;
+/
+BEGIN
+    show_square(5);
+END;
+/
+
+--Procedure to Add Two Numbers
+CREATE OR REPLACE PROCEDURE add_numbers(
+    a IN NUMBER,
+    b IN NUMBER
+)
+AS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Sum = ' || (a+b));
+END;
+/
+BEGIN
+    add_numbers(10,20);
+END;
+/
+
+--Procedure with OUT Parameter
+CREATE OR REPLACE PROCEDURE get_sum(
+    a IN NUMBER,
+    b IN NUMBER,
+    result OUT NUMBER
+)
+AS
+BEGIN
+    result := a + b;
+END;
+/
+DECLARE
+    total NUMBER;
+BEGIN
+    get_sum(15,25,total);
+    DBMS_OUTPUT.PUT_LINE('Sum = ' || total);
+END;
+/
+
+--Procedure to Check Even or Odd
+CREATE OR REPLACE PROCEDURE check_even_odd(
+    num IN NUMBER
+)
+AS
+BEGIN
+    IF MOD(num,2)=0 THEN
+        DBMS_OUTPUT.PUT_LINE('Even');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Odd');
+    END IF;
+END;
+/
+BEGIN
+    check_even_odd(12);
+END;
+/
+
+--Procedure to Find Maximum of Two Numbers
+CREATE OR REPLACE PROCEDURE find_max(
+    a IN NUMBER,
+    b IN NUMBER
+)
+AS
+BEGIN
+    IF a > b THEN
+        DBMS_OUTPUT.PUT_LINE('Maximum = ' || a);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Maximum = ' || b);
+    END IF;
+END;
+/
+BEGIN
+    find_max(25,18);
+END;
+/
+
+--Procedure Using Employee Table
+CREATE TABLE employee(
+    emp_id NUMBER,
+    emp_name VARCHAR2(30),
+    salary NUMBER
+);
+INSERT INTO employee VALUES(101,'Ravi',40000);
+INSERT INTO employee VALUES(102,'Priya',50000);
+COMMIT;
+CREATE OR REPLACE PROCEDURE get_salary(
+    id IN NUMBER
+)
+AS
+    sal NUMBER;
+BEGIN
+    SELECT salary
+    INTO sal
+    FROM employee
+    WHERE emp_id = id;
+
+    DBMS_OUTPUT.PUT_LINE('Salary = ' || sal);
+END;
+/
+BEGIN
+    get_salary(101);
+END;
+/

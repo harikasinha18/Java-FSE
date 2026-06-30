@@ -1,0 +1,122 @@
+ --IF statement
+ DECLARE
+    num NUMBER := 10;
+BEGIN
+    IF num > 0 THEN
+        DBMS_OUTPUT.PUT_LINE('Positive Number');
+    END IF;
+END;
+/
+
+-- IF-ELSE statement
+ DECLARE
+    num NUMBER := -5;
+BEGIN
+    IF num >= 0 THEN
+        DBMS_OUTPUT.PUT_LINE('Positive');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Negative');
+    END IF;
+END;
+/
+
+--IF-ELSEIF-ELSE statement
+DECLARE
+    marks NUMBER := 78;
+BEGIN
+    IF marks >= 90 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade A');
+    ELSIF marks >= 75 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade B');
+    ELSIF marks >= 60 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade C');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Fail');
+    END IF;
+END;
+/
+
+--CASE statement
+DECLARE
+    day_num NUMBER := 3;
+BEGIN
+    CASE day_num
+        WHEN 1 THEN DBMS_OUTPUT.PUT_LINE('Monday');
+        WHEN 2 THEN DBMS_OUTPUT.PUT_LINE('Tuesday');
+        WHEN 3 THEN DBMS_OUTPUT.PUT_LINE('Wednesday');
+        ELSE DBMS_OUTPUT.PUT_LINE('Invalid Day');
+    END CASE;
+END;
+/
+
+--LOOP statement
+DECLARE
+    i NUMBER := 1;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(i);
+        i := i + 1;
+
+        EXIT WHEN i > 5;
+    END LOOP;
+END;
+/
+
+--WHILE LOOP statement
+DECLARE
+    i NUMBER := 1;
+BEGIN
+    WHILE i <= 5 LOOP
+        DBMS_OUTPUT.PUT_LINE(i);
+        i := i + 1;
+    END LOOP;
+END;
+/
+
+--FOR LOOP statement
+BEGIN
+    FOR i IN 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE(i);
+    END LOOP;
+END;
+/
+
+--Re=EVERSE FOR LOOP statement
+BEGIN
+    FOR i IN REVERSE 1..5 LOOP
+        DBMS_OUTPUT.PUT_LINE(i);
+    END LOOP;
+END;
+/
+
+--NESTED IF statement
+DECLARE
+    age NUMBER := 20;
+BEGIN
+    IF age >= 18 THEN
+        IF age >= 21 THEN
+            DBMS_OUTPUT.PUT_LINE('Can Vote and Drink');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('Can Vote Only');
+        END IF;
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Minor');
+    END IF;
+END;
+/
+
+--EXIT statement
+DECLARE
+    i NUMBER := 1;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(i);
+
+        IF i = 3 THEN
+            EXIT;
+        END IF;
+
+        i := i + 1;
+    END LOOP;
+END;
+/

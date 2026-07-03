@@ -1,0 +1,102 @@
+# Difference Between JPA, Hibernate, and Spring Data JPA
+
+## Overview
+
+This project demonstrates the differences between **JPA**, **Hibernate**, and **Spring Data JPA** by implementing a simple Spring Boot application that performs CRUD operations on a `Student` entity using a MySQL database.
+
+## Technologies Used
+
+* Java 21
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* MySQL
+* Maven
+* IntelliJ IDEA
+
+## What is JPA?
+
+**JPA (Java Persistence API)** is a Java specification that defines a standard way to map Java objects to relational database tables and perform database operations. It provides annotations such as `@Entity`, `@Id`, and interfaces like `EntityManager`, but it does not contain the actual implementation.
+
+## What is Hibernate?
+
+**Hibernate** is an Object-Relational Mapping (ORM) framework that implements the JPA specification. It is responsible for generating SQL queries, managing database connections, and performing CRUD operations.
+
+## What is Spring Data JPA?
+
+**Spring Data JPA** is a Spring framework module built on top of JPA. It simplifies database access by providing repository interfaces such as `JpaRepository`, reducing the amount of boilerplate code required.
+
+## Difference Between JPA, Hibernate, and Spring Data JPA
+
+| JPA                               | Hibernate                 | Spring Data JPA                          |
+| --------------------------------- | ------------------------- | ---------------------------------------- |
+| Specification (API)               | ORM Framework             | Spring Module                            |
+| Defines standards for persistence | Implements JPA            | Uses JPA internally                      |
+| Uses `EntityManager`              | Uses `Session` internally | Uses `JpaRepository`                     |
+| No implementation                 | Actual implementation     | Simplifies data access with repositories |
+
+## Project Structure
+
+```text
+src
+├── controller
+│   └── StudentController.java
+├── service
+│   └── StudentService.java
+├── repository
+│   └── StudentRepository.java
+├── entity
+│   └── Student.java
+└── SpringDataJpaApplication.java
+```
+
+## Database Configuration
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+spring.datasource.username=root
+spring.datasource.password=admin
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+## How It Works
+
+1. The client sends a request to the controller.
+2. The controller calls the service layer.
+3. The service uses `StudentRepository`.
+4. `StudentRepository` extends `JpaRepository` provided by Spring Data JPA.
+5. JPA communicates with Hibernate.
+6. Hibernate generates SQL queries and interacts with the MySQL database.
+
+### Flow
+
+```text
+Client
+   ↓
+Controller
+   ↓
+Service
+   ↓
+StudentRepository (Spring Data JPA)
+   ↓
+JPA
+   ↓
+Hibernate
+   ↓
+MySQL Database
+```
+
+## Key Learning Outcomes
+
+* Understood the role of JPA as a persistence specification.
+* Learned how Hibernate implements the JPA specification.
+* Implemented CRUD operations using Spring Data JPA.
+* Connected a Spring Boot application to a MySQL database.
+* Reduced boilerplate code using `JpaRepository`.
+
+## Conclusion
+
+This project demonstrates how **Spring Data JPA**, **JPA**, and **Hibernate** work together in a Spring Boot application. Spring Data JPA simplifies repository creation, JPA provides the standard persistence API, and Hibernate performs the actual database operations with MySQL.

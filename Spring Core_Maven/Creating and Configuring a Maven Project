@@ -1,0 +1,67 @@
+# Spring Basic App
+
+A beginner-friendly Spring Framework project created as part of my Java Full Stack Deep Skilling program.
+
+##  Exercises Covered
+
+###  Exercise 1: Configuring a Basic Spring Application
+- Created a Maven project
+- Added Spring Context dependency
+- Configured Spring using `applicationContext.xml`
+- Created and managed Spring Beans
+- Loaded the Spring IoC Container
+- Retrieved beans using `ApplicationContext`
+
+###  Exercise 2: Implementing Dependency Injection
+- Implemented Dependency Injection (DI)
+- Injected dependencies using XML configuration
+- Understood Inversion of Control (IoC)
+- Reduced object coupling using Spring
+
+###  Exercise 4: Creating and Configuring a Maven Project
+- Created a Maven project
+- Configured `pom.xml`
+- Added Spring dependencies
+- Understood Maven project structure
+- Built and ran the project successfully
+
+##  Technologies Used
+
+- Java 21
+- Spring Framework 6
+- Maven
+- IntelliJ IDEA
+
+##  Project Structure
+
+```
+SpringBasicApp
+│
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   └── resources
+│   └── test
+└── target
+```
+
+##  Concepts Learned
+
+- Spring Framework Basics
+- Spring IoC Container
+- Dependency Injection (DI)
+- Bean Configuration
+- XML Configuration
+- Maven Project Management
+
+##  How to Run
+
+1. Clone the repository.
+2. Open the project in IntelliJ IDEA.
+3. Reload Maven dependencies.
+4. Run the `App.java` file.
+
+##  Learning Outcome
+
+This project helped me understand the fundamentals of the Spring Framework, including Maven project configuration, Spring Bean creation, IoC (Inversion of Control), and Dependency Injection using XML-based configuration.

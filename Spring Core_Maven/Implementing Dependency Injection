@@ -1,0 +1,128 @@
+--AppDI.java--
+
+package org.example.springcore;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class AppDI {
+    public static void main(String[] args) {
+
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContextDI.xml");
+
+        Car car = context.getBean("car", Car.class);
+
+        car.drive();
+    }
+}
+
+
+--App.java--
+
+package org.example.springcore;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App {
+    public static void main(String[] args) {
+
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        HelloWorld hello = context.getBean("helloWorld", HelloWorld.class);
+
+        hello.display();
+    }
+}
+
+
+--car.java--
+
+package org.example.springcore;
+
+public class Car {
+
+    private Engine engine;
+
+    // Setter Injection
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        engine.start();
+        System.out.println("Car is Running...");
+    }
+}
+
+
+--Engine.java--
+
+package org.example.springcore;
+
+public class Engine {
+
+    public void start() {
+        System.out.println("Engine Started...");
+    }
+}
+
+
+
+--applicationContextDI.xml--
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Engine Bean -->
+    <bean id="engine"
+          class="org.example.springcore.Engine"/>
+
+    <!-- Car Bean -->
+    <bean id="car"
+          class="org.example.springcore.Car">
+
+        <!-- Dependency Injection -->
+        <property name="engine" ref="engine"/>
+
+    </bean>
+
+</beans>
+
+
+--pom.xml--
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>SpringCoreExercise1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.8</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
+

@@ -111,8 +111,23 @@ Implemented:
 
 ---
 
-## ⏳ Hands-On 5
-Pending
+## ✅ Hands-On 5 – Reactive Forms
+
+### ✅ Task 1
+- Created Reactive Form using FormBuilder
+- Implemented FormGroup and Validators
+- Used ReactiveFormsModule
+- Submitted form values
+
+### ✅ Task 2
+- Created a custom validator
+- Implemented FormArray for dynamic courses
+- Added Add Course functionality
+- Added Remove Course functionality
+
+**Status:** ✅ Completed
+
+---
 
 ## ⏳ Hands-On 6
 Pending

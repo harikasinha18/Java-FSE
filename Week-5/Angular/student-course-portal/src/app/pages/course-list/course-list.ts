@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseCard } from '../../components/course-card/course-card';
 
@@ -9,18 +9,39 @@ import { CourseCard } from '../../components/course-card/course-card';
   templateUrl: './course-list.html',
   styleUrl: './course-list.css'
 })
-export class CourseList {
+export class CourseList implements OnInit {
+
+  isLoading = true;
 
   courses = [
-    'Angular Basics',
-    'Java Programming',
-    'Spring Boot'
+    {
+      id: 1,
+      name: 'Angular Basics',
+      credits: 3,
+      gradeStatus: 'passed'
+    },
+    {
+      id: 2,
+      name: 'Java Programming',
+      credits: 4,
+      gradeStatus: 'pending'
+    },
+    {
+      id: 3,
+      name: 'Spring Boot',
+      credits: 2,
+      gradeStatus: 'failed'
+    }
   ];
 
-  message = '';
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+  }
 
-  onEnroll(course: string) {
-    this.message = `Student enrolled in ${course}`;
+  trackByCourseId(index: number, course: any) {
+    return course.id;
   }
 
 }

@@ -1,0 +1,69 @@
+<h2>Reactive Enrollment Form</h2>
+
+<form [formGroup]="enrollForm" (ngSubmit)="onSubmit()">
+
+    <label>Student Name</label><br>
+
+    <input type="text" formControlName="studentName">
+
+    <div *ngIf="enrollForm.get('studentName')?.errors?.['invalidName']">
+
+        Name should contain at least 3 characters
+
+    </div>
+
+    <br><br>
+
+    <label>Email</label><br>
+
+    <input type="email" formControlName="studentEmail">
+
+    <br><br>
+
+    <label>
+
+        <input
+            type="checkbox"
+            formControlName="agreeToTerms">
+
+        Agree to Terms
+
+    </label>
+
+    <br><br>
+
+    <h3>Courses</h3>
+
+    <div formArrayName="courses">
+
+        <div *ngFor="let course of courses.controls; let i=index">
+
+            <input [formControlName]="i" placeholder="Course Name">
+
+            <button type="button" (click)="removeCourse(i)">
+
+                Remove
+
+            </button>
+
+            <br><br>
+
+        </div>
+
+    </div>
+
+    <button type="button" (click)="addCourse()">
+
+        Add Course
+
+    </button>
+
+    <br><br>
+
+    <button type="submit" [disabled]="enrollForm.invalid">
+
+        Submit
+
+    </button>
+
+</form>

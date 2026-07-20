@@ -60,13 +60,21 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 
 **Status:** ✅ Completed
 
-### ⏳ Task 3: Parent-Child Communication (`@Input` & `@Output`)
+## 🚧 Hands-On 3 – Directives & Pipes
+
+### ✅ Task 1: Structural Directives
+- Implemented `*ngIf`
+- Implemented `*ngFor`
+- Implemented `*ngSwitch`
+- Implemented `trackBy`
+- Displayed loading message using `setTimeout()`
+
+### ⏳ Task 2: Attribute Directives
 Pending
 
----
-
-## ⏳ Hands-On 3
+### ⏳ Task 3: Custom Directive & Custom Pipe
 Pending
+
 
 ## ⏳ Hands-On 4
 Pending

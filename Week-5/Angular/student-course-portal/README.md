@@ -60,20 +60,23 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 
 **Status:** ✅ Completed
 
-## 🚧 Hands-On 3 – Directives & Pipes
+## ✅ Hands-On 3 – Directives & Pipes
 
 ### ✅ Task 1: Structural Directives
-- Implemented `*ngIf`
-- Implemented `*ngFor`
-- Implemented `*ngSwitch`
-- Implemented `trackBy`
-- Displayed loading message using `setTimeout()`
+- *ngIf
+- *ngFor
+- *ngSwitch
+- trackBy
 
-### ⏳ Task 2: Attribute Directives
-Pending
+### ✅ Task 2: Attribute Directives
+- ngClass
+- ngStyle
 
-### ⏳ Task 3: Custom Directive & Custom Pipe
-Pending
+### ✅ Task 3: Custom Directive & Custom Pipe
+- Highlight Directive
+- Credit Label Pipe
+
+**Status:** ✅ Completed
 
 
 ## ⏳ Hands-On 4

@@ -60,6 +60,8 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 
 **Status:** ✅ Completed
 
+---
+
 ## ✅ Hands-On 3 – Directives & Pipes
 
 ### ✅ Task 1: Structural Directives
@@ -78,9 +80,22 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 
 **Status:** ✅ Completed
 
+---
 
-## ⏳ Hands-On 4
-Pending
+## ✅ Hands-On 4 – Template-Driven Forms & Validation
+
+### ✅ Task 1: Enrollment Request Form
+
+Implemented:
+- Created `EnrollmentFormComponent`
+- Added `/enroll` route
+- Built a Template-Driven Form using `ngForm`
+- Implemented `[(ngModel)]` for all form controls
+- Added Student Name, Email, Course ID, Preferred Semester and Terms fields
+- Implemented form submission using `onSubmit()`
+- Disabled the Submit button when the form is invalid
+
+**Status:** ✅ Task 1 Completed
 
 ## ⏳ Hands-On 5
 Pending

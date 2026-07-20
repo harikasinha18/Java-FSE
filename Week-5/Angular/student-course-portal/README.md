@@ -48,8 +48,10 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 - Event Binding
 - Two-Way Binding (`ngModel`)
 
-### ⏳ Task 2: Lifecycle Hooks
-Pending
+### ✅ Task 2: Lifecycle Hooks
+- Implemented ngOnInit()
+- Implemented ngOnDestroy()
+- Verified lifecycle hook execution using Browser Console
 
 ### ⏳ Task 3: Parent-Child Communication (`@Input` & `@Output`)
 Pending

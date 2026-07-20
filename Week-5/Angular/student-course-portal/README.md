@@ -1,59 +1,87 @@
-# StudentCoursePortal
+# Student Course Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+## Project Description
 
-## Development server
+This project is developed using **Angular** as part of the **Cognizant Digital Nurture 5.0 Angular Hands-On Exercises**.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Technologies Used
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 21
+- TypeScript
+- HTML
+- CSS
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Hands-On Progress
 
-```bash
-ng generate component component-name
-```
+## ✅ Hands-On 1 – Environment Setup, Project Structure & First Components
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Task 1: Scaffold and Explore the Angular Project
+- Installed Angular CLI
+- Created Angular Project
+- Explored Angular Project Structure
+- Understood generated files
+- Executed `ng serve`
+- Executed `ng build`
+- Explored the `dist` folder
+- Studied Angular build budgets
 
-```bash
-ng generate --help
-```
+### Task 2: Create and Organize Components
+- Created Header Component
+- Created Home Component
+- Created Course List Component
+- Created Student Profile Component
+- Added Navigation Header
+- Added Home Page
+- Verified application execution
 
-## Building
+---
 
-To build the project run:
+## 🚧 Hands-On 2 – Data Binding, Lifecycle Hooks & Component Communication
 
-```bash
-ng build
-```
+### ✅ Task 1: All Four Binding Types
+- Interpolation
+- Property Binding
+- Event Binding
+- Two-Way Binding (`ngModel`)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### ⏳ Task 2: Lifecycle Hooks
+Pending
 
-## Running unit tests
+### ⏳ Task 3: Parent-Child Communication (`@Input` & `@Output`)
+Pending
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## ⏳ Hands-On 3
+Pending
 
-## Running end-to-end tests
+## ⏳ Hands-On 4
+Pending
 
-For end-to-end (e2e) testing, run:
+## ⏳ Hands-On 5
+Pending
 
-```bash
-ng e2e
-```
+## ⏳ Hands-On 6
+Pending
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## ⏳ Hands-On 7
+Pending
 
-## Additional Resources
+## ⏳ Hands-On 8
+Pending
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## ⏳ Hands-On 9
+Pending
+
+## ⏳ Hands-On 10
+Pending
+
+---
+
+## Author
+
+**Pandu Harika Sinha**

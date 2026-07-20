@@ -95,7 +95,21 @@ Implemented:
 - Implemented form submission using `onSubmit()`
 - Disabled the Submit button when the form is invalid
 
-**Status:** ✅ Task 1 Completed
+### ✅ Task 2: Validation & Error Messages
+
+Implemented:
+- Required validation
+- Minimum length validation
+- Email validation
+- Dynamic error messages
+- Red border for invalid fields
+- Green border for valid fields
+- Success message after submission
+- Reset functionality
+
+**Status:** ✅ Completed
+
+---
 
 ## ⏳ Hands-On 5
 Pending

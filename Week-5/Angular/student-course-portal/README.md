@@ -40,18 +40,25 @@ This project is developed using **Angular** as part of the **Cognizant Digital N
 
 ---
 
-## 🚧 Hands-On 2 – Data Binding, Lifecycle Hooks & Component Communication
+## ✅ Hands-On 2 – Data Binding, Lifecycle Hooks & Component Communication
 
-### ✅ Task 1: All Four Binding Types
+### ✅ Task 1: Data Binding
 - Interpolation
 - Property Binding
 - Event Binding
 - Two-Way Binding (`ngModel`)
 
 ### ✅ Task 2: Lifecycle Hooks
-- Implemented ngOnInit()
-- Implemented ngOnDestroy()
+- Implemented `ngOnInit()`
+- Implemented `ngOnDestroy()`
 - Verified lifecycle hook execution using Browser Console
+
+### ✅ Task 3: Parent-Child Communication
+- Implemented `@Input()`
+- Implemented `@Output()`
+- Used `EventEmitter` for child-to-parent communication
+
+**Status:** ✅ Completed
 
 ### ⏳ Task 3: Parent-Child Communication (`@Input` & `@Output`)
 Pending

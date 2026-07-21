@@ -1,35 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CourseCard } from '../../components/course-card/course-card';
-import { CourseService } from '../../services/course';
-import { Course } from '../../models/course.model';
+import { Store } from '@ngrx/store';
+
+import * as CourseActions from '../../store/actions/course.actions';
+import * as CourseSelectors from '../../store/selectors/course.selectors';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule, CourseCard],
+  imports: [CommonModule],
   templateUrl: './course-list.html',
   styleUrl: './course-list.css'
 })
 export class CourseList implements OnInit {
 
-  isLoading = true;
+  private store = inject(Store);
 
-  courses: Course[] = [];
-
-  constructor(private courseService: CourseService) {}
+  courses$ = this.store.select(CourseSelectors.selectAllCourses);
+  loading$ = this.store.select(CourseSelectors.selectLoading);
+  error$ = this.store.select(CourseSelectors.selectError);
 
   ngOnInit(): void {
-
-    setTimeout(() => {
-      this.courses = this.courseService.getCourses();
-      this.isLoading = false;
-    }, 1500);
-
+    this.store.dispatch(CourseActions.loadCourses());
   }
-
-  trackByCourseId(index: number, course: Course): number {
-    return course.id;
-  }
-
 }

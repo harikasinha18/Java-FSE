@@ -1,16 +1,13 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule, NgClass, NgStyle } from '@angular/common';
+  import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Highlight } from '../../directives/highlight';
 import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
 import { EnrollmentService } from '../../services/enrollment';
-
 @Component({
   selector: 'app-course-card',
   standalone: true,
   imports: [
     CommonModule,
-    NgClass,
-    NgStyle,
     Highlight,
     CreditLabelPipe
   ],

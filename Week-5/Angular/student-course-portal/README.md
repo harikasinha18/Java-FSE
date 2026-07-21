@@ -147,14 +147,102 @@ Implemented:
 
 ---
 
-## ⏳ Hands-On 7
-Pending
+## ✅ Hands-On 7 – Angular Routing, Guards & Lazy Loading
 
-## ⏳ Hands-On 8
-Pending
+### ✅ Task 1
+- Configured application routing using `app.routes.ts`
+- Created `CourseDetail` component
+- Created `CoursesLayout` component
+- Created `NotFound` component
+- Implemented nested routes
+- Used route parameters (`:id`) to display course details
 
-## ⏳ Hands-On 9
-Pending
+### ✅ Task 2
+- Created `AuthService`
+- Implemented `CanActivate` Auth Guard
+- Protected the Profile route
+- Created `CanDeactivate` Guard
+- Created Enrollment Feature Module
+- Configured Lazy Loading for the Enrollment module
+
+**Status:** ✅ Completed
+
+---
+
+## ✅ Hands-On 8: HTTP Client – API Integration, Observables & Interceptors
+
+## ✅ Task 1: Replace Service Data with HttpClient Calls
+
+- Configured HttpClient using `provideHttpClient()`.
+- Injected `HttpClient` into `CourseService`.
+- Replaced hardcoded data with HTTP GET requests.
+- Implemented GET, GET by ID, POST, PUT, and DELETE operations.
+- Updated components to use `subscribe()` for fetching data from the API.
+
+---
+
+## ✅ Task 2: RxJS Operators and Error Handling
+
+- Used `map()` to transform API response.
+- Used `tap()` for logging API responses.
+- Implemented `retry(2)` for failed requests.
+- Added `catchError()` for custom error handling.
+- Used `switchMap()` for chaining HTTP requests.
+
+---
+
+## ✅ Task 3: HTTP Interceptors
+
+- Created Authentication Interceptor.
+- Added Authorization header to all HTTP requests.
+- Created Error Handler Interceptor for global error handling.
+- Created Loading Interceptor to manage loading state.
+- Registered all interceptors in `app.config.ts`.
+- Verified interceptor functionality using the browser Network tab.
+
+**Status:** ✅ Completed
+
+---
+
+## ✅ Hands-On 9: State Management using NgRx
+
+## ✅ Task 1: NgRx Store Setup
+
+- Installed NgRx packages.
+- Created Store folder structure.
+- Defined Course State.
+- Configured initial application state.
+
+---
+
+## ✅ Task 2: Actions & Reducer
+
+- Created Actions for loading course data.
+- Implemented Reducer to update application state.
+- Registered Store in app.config.ts.
+
+---
+
+## ✅ Task 3: Effects
+
+- Created NgRx Effects.
+- Integrated CourseService with Effects.
+- Dispatched Success and Failure actions.
+- Registered Effects in app.config.ts.
+
+---
+
+## ✅ Task 4: Selectors & Store Integration
+
+- Created Selectors to access application state.
+- Connected Store with Course List component.
+- Displayed course data using Selectors.
+- Managed loading and error states through the Store.
+
+**Status:** ✅ Completed
+
+
+---
 
 ## ⏳ Hands-On 10
 Pending

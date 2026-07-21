@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
 import { Course } from '../models/course.model';
 import { CourseService } from './course';
 
@@ -26,9 +27,14 @@ export class EnrollmentService {
     return this.enrolledCourseIds.includes(courseId);
   }
 
-  getEnrolledCourses(): Course[] {
-    return this.courseService
-      .getCourses()
-      .filter(course => this.enrolledCourseIds.includes(course.id));
+  getEnrolledCourses(): Observable<Course[]> {
+    return this.courseService.getCourses().pipe(
+      map(courses =>
+        courses.filter(course =>
+          this.enrolledCourseIds.includes(course.id)
+        )
+      )
+    );
   }
+
 }

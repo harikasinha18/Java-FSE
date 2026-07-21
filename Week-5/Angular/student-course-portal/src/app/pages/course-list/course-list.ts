@@ -1,9 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import * as CourseActions from '../../store/actions/course.actions';
-import * as CourseSelectors from '../../store/selectors/course.selectors';
+import { Course } from '../../models/course.model';
+import { CourseState } from '../../store/state/course.state';
+import {
+  selectAllCourses,
+  selectLoading,
+  selectError
+} from '../../store/selectors/course.selectors';
 
 @Component({
   selector: 'app-course-list',
@@ -12,15 +18,16 @@ import * as CourseSelectors from '../../store/selectors/course.selectors';
   templateUrl: './course-list.html',
   styleUrl: './course-list.css'
 })
-export class CourseList implements OnInit {
+export class CourseList {
 
-  private store = inject(Store);
+  courses$: Observable<Course[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string | null>;
 
-  courses$ = this.store.select(CourseSelectors.selectAllCourses);
-  loading$ = this.store.select(CourseSelectors.selectLoading);
-  error$ = this.store.select(CourseSelectors.selectError);
-
-  ngOnInit(): void {
-    this.store.dispatch(CourseActions.loadCourses());
+  constructor(private store: Store<{ courses: CourseState }>) {
+    this.courses$ = this.store.select(selectAllCourses);
+    this.loading$ = this.store.select(selectLoading);
+    this.error$ = this.store.select(selectError);
   }
+
 }

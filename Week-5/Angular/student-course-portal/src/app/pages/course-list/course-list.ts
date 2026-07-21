@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseCard } from '../../components/course-card/course-card';
+import { CourseService } from '../../services/course';
+import { Course } from '../../models/course.model';
 
 @Component({
   selector: 'app-course-list',
@@ -13,34 +15,20 @@ export class CourseList implements OnInit {
 
   isLoading = true;
 
-  courses = [
-    {
-      id: 1,
-      name: 'Angular Basics',
-      credits: 3,
-      gradeStatus: 'passed'
-    },
-    {
-      id: 2,
-      name: 'Java Programming',
-      credits: 4,
-      gradeStatus: 'pending'
-    },
-    {
-      id: 3,
-      name: 'Spring Boot',
-      credits: 2,
-      gradeStatus: 'failed'
-    }
-  ];
+  courses: Course[] = [];
+
+  constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
+
     setTimeout(() => {
+      this.courses = this.courseService.getCourses();
       this.isLoading = false;
     }, 1500);
+
   }
 
-  trackByCourseId(index: number, course: any) {
+  trackByCourseId(index: number, course: Course): number {
     return course.id;
   }
 

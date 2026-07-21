@@ -129,8 +129,23 @@ Implemented:
 
 ---
 
-## ⏳ Hands-On 6
-Pending
+## ✅ Hands-On 6 – Services & Dependency Injection
+
+### ✅ Task 1
+- Created `CourseService`
+- Shared course data across components
+- Implemented singleton service
+
+### ✅ Task 2
+- Created `EnrollmentService`
+- Injected `CourseService` into `EnrollmentService`
+- Implemented Enroll/Unenroll functionality
+- Displayed enrolled courses in Student Profile
+- Demonstrated Angular Dependency Injection
+
+**Status:** ✅ Hands-On 6 Completed
+
+---
 
 ## ⏳ Hands-On 7
 Pending

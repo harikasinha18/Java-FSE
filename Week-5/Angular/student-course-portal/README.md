@@ -179,8 +179,6 @@ Implemented:
 - Implemented GET, GET by ID, POST, PUT, and DELETE operations.
 - Updated components to use `subscribe()` for fetching data from the API.
 
----
-
 ## ✅ Task 2: RxJS Operators and Error Handling
 
 - Used `map()` to transform API response.
@@ -188,8 +186,6 @@ Implemented:
 - Implemented `retry(2)` for failed requests.
 - Added `catchError()` for custom error handling.
 - Used `switchMap()` for chaining HTTP requests.
-
----
 
 ## ✅ Task 3: HTTP Interceptors
 
@@ -213,15 +209,11 @@ Implemented:
 - Defined Course State.
 - Configured initial application state.
 
----
-
 ## ✅ Task 2: Actions & Reducer
 
 - Created Actions for loading course data.
 - Implemented Reducer to update application state.
 - Registered Store in app.config.ts.
-
----
 
 ## ✅ Task 3: Effects
 
@@ -229,8 +221,6 @@ Implemented:
 - Integrated CourseService with Effects.
 - Dispatched Success and Failure actions.
 - Registered Effects in app.config.ts.
-
----
 
 ## ✅ Task 4: Selectors & Store Integration
 

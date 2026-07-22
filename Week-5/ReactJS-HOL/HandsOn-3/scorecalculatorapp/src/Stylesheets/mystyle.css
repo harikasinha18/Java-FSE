@@ -3,7 +3,7 @@ h2 {
     text-align: center;
 }
 
-div {
+.student-card {
     border: 2px solid black;
     width: 400px;
     margin: 20px auto;
